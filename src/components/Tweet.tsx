@@ -1,5 +1,5 @@
 import { ArrowsClockwise, ChatCircle, Heart } from 'phosphor-react';
-import {Link} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import './Tweet.css';
 import camila from '../assets/camila.jpg'
 
@@ -8,8 +8,18 @@ interface TweetProps {
 }
 
 export function Tweet(props: TweetProps) {
+  const navigate = useNavigate()
+
+  function navigateToStatus() {
+    navigate('/status', {
+      state: {
+        content: props.content
+      }
+    })
+  }
+
   return (
-    <Link to="/status" className="tweet">
+    <button onClick={navigateToStatus} className="tweet">
       <img src={camila} alt="Camila Bello" />
 
       <div className="tweet-content">
@@ -37,6 +47,6 @@ export function Tweet(props: TweetProps) {
 
         </div>
       </div>
-    </Link>
+    </button>
   )
 }

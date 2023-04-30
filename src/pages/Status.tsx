@@ -1,12 +1,14 @@
-import { Header } from "../components/Header"
-import { Separator } from "../components/Separator"
-import camila from '../assets/camila.jpg'
-import { Tweet } from "../components/Tweet"
-import './Status.css';
-import { FormEvent, Key, KeyboardEvent, useState } from "react"
 import { PaperPlaneRight } from "phosphor-react";
+import { FormEvent, KeyboardEvent, useState } from "react";
+import camila from '../assets/camila.jpg';
+import { Header } from "../components/Header";
+import { Separator } from "../components/Separator";
+import { Tweet } from "../components/Tweet";
+import './Status.css';
+import {useLocation} from 'react-router-dom';
 
 export function Status() {
+  const location = useLocation();
   const [newAnswer, setNewAnswer] = useState('')
 
   const [answers, setAswers] = useState([
@@ -33,7 +35,7 @@ export function Status() {
     <main className="status">
       <Header title="Home" />
 
-      <Tweet content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque illum dolorum nobis optio mollitia impedit modi minima fugit velit, totam amet, magni culpa perferendis obcaecati. Corporis distinctio hic fuga libero?" />
+      <Tweet content={location.state.content} />
       <Separator />
 
       <form onSubmit={createNewAnswer} className="answer-tweet-form">
