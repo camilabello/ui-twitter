@@ -19,7 +19,7 @@ export function Tweet(props: TweetProps) {
   }
 
   return (
-    <button onClick={navigateToStatus} className="tweet">
+    <div onClick={navigateToStatus} className="tweet">
       <img src={camila} alt="Camila Bello" />
 
       <div className="tweet-content">
@@ -47,6 +47,6 @@ export function Tweet(props: TweetProps) {
 
         </div>
       </div>
-    </button>
+    </div>
   )
 }
