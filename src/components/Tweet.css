@@ -40,6 +40,12 @@ gap: 3rem;
 margin-top: 0.75rem;
 }
 
+@media (max-width: 780px) {
+  .tweet .tweet-content .tweet-content-footer {
+    gap: 2rem;
+  }
+}
+
 .tweet .tweet-content .tweet-content-footer button{
   display: flex;
   align-items: center;
